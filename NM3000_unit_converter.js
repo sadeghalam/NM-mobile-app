@@ -16,7 +16,7 @@ factor[2] = new Array(1, 100, 1000, 11494.25);
 
 property[3] = "Exposure";
 unit[3] = new Array("Roentgen", "Coulomb/Kg-air", "Rem", "Milirem", "Gray", "Microgray");
-factor[3] = new Array(1, 2.58E-4, 0.877, 877, 0.877E-4, 0.877E+4);
+factor[3] = new Array(1, 2.58E-04, 0.877, 877, 0.877E-04, 0.877E+04);
 
 
 // ===========
@@ -77,11 +77,11 @@ function ConvertFromTo(sourceForm, targetForm) {
 
   result = sourceForm.unit_input.value;
   
-  result = result * sourceFactor;
+  result = result / sourceFactor;
 
   // not done yet... now, b) use the targetFactor to convert FROM the base unit
   // to the target unit...
-  result = result / targetFactor;
+  result = result * targetFactor;
  
   // Ta-da! All that's left is to update the target input box:
   targetForm.unit_input.value = result;
