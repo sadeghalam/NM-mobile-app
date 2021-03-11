@@ -69,22 +69,20 @@ function ConvertFromTo(sourceForm, targetForm) {
   sourceIndex = sourceForm.unit_menu.selectedIndex;
   sourceFactor = factor[propIndex][sourceIndex];
 
-  // Cool! Let's do the same thing for the target unit - the units we are converting TO:
+  // the same thing for the target unit - the units we are converting TO:
   targetIndex = targetForm.unit_menu.selectedIndex;
   targetFactor = factor[propIndex][targetIndex];
 
-  // Simple, huh? let's do the math: a) convert the source TO the base unit: (The input has been checked by the CalculateUnit function).
+  // a) convert the source TO the base unit: (The input has been checked by the CalculateUnit function).
 
   result = sourceForm.unit_input.value;
   
   result = result / sourceFactor;
 
-  // not done yet... now, b) use the targetFactor to convert FROM the base unit
-  // to the target unit...
+  // b) use the targetFactor to convert FROM the base unit to the target unit...
   result = result * targetFactor;
  
-  // Ta-da! All that's left is to update the target input box:
-  targetForm.unit_input.value = result;
+  targetForm.unit_input.value = Math.round(result);
 }
 
 // This fragment initializes the property dropdown menu using the data defined above in the 'Data Definitions' section
