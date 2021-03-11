@@ -16,7 +16,7 @@ factor[2] = new Array(1, 100, 1000, 11494.25);
 
 property[3] = "Exposure";
 unit[3] = new Array("Roentgen", "Coulomb/Kg-air", "Rem", "Milirem", "Gray", "Microgray");
-factor[3] = new Array(1, 2.58E-04, 0.877, 877, 0.877E-04, 0.877E+04);
+factor[3] = new Array(1, 2.58E-04, 0.87, 87, 0.87E-04, 0.87E+04);
 
 
 // ===========
@@ -82,7 +82,7 @@ function ConvertFromTo(sourceForm, targetForm) {
   // b) use the targetFactor to convert FROM the base unit to the target unit...
   result = result * targetFactor;
  
-  targetForm.unit_input.value = Math.round(result);
+  targetForm.unit_input.value = result;
 }
 
 // This fragment initializes the property dropdown menu using the data defined above in the 'Data Definitions' section
